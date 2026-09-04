@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+body {
+  background:
+    radial-gradient(circle at 18% 12%, rgba(193, 18, 31, 0.24), transparent 28rem),
+    radial-gradient(circle at 82% 0%, rgba(251, 191, 36, 0.16), transparent 24rem),
+    linear-gradient(180deg, #081022 0%, #0b1021 46%, #070b16 100%);
+}
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+@layer base {
+  body { @apply m-0 overflow-x-hidden bg-stage-navy font-sans text-stage-cream; }
+  a { @apply text-inherit no-underline; }
+  p { @apply leading-7 text-stage-muted; }
+  h1, h2 { @apply font-display leading-none text-stage-gold drop-shadow-[0_0_26px_rgba(251,191,36,.22)]; }
+  h3 { @apply text-xl font-bold leading-tight text-stage-cream; }
+  svg { @apply h-5 w-5; }
+}
+
+@layer components {
+  .site-header { @apply fixed inset-x-0 top-0 z-50 flex items-center justify-between gap-4 border-b border-stage-gold/20 bg-[#080d1d]/80 px-4 py-3 backdrop-blur-xl transition-transform duration-500 ease-out md:px-10 lg:px-16; }
+  .site-header-hidden { @apply -translate-y-[calc(100%+1rem)]; }
+  .brand { @apply font-display inline-flex items-center gap-3 tracking-wide text-stage-gold transition duration-300 hover:-translate-y-0.5 hover:text-stage-gold; }
+  .brand strong { @apply font-normal text-white; }
+  .brand-mark, .icon, .spotlight-icon { @apply grid place-items-center border border-stage-gold/70 bg-gradient-to-br from-stage-red to-red-950 text-stage-gold shadow-[0_0_30px_rgba(193,18,31,.28)] transition duration-300; }
+  .brand-mark { @apply h-10 w-10 overflow-hidden rounded-full bg-stage-cream p-1; }
+  .brand-mark img { @apply h-full w-full object-contain; }
+  .main-nav { @apply absolute left-4 right-4 top-[calc(100%+.65rem)] hidden flex-col rounded-2xl border border-stage-gold/20 bg-[#080d1d]/95 p-2 md:static md:flex md:flex-row md:items-center md:gap-1 md:border-0 md:bg-transparent md:p-0; }
+  .main-nav.open { @apply flex; }
+  .main-nav a { @apply rounded-full px-4 py-3 text-sm font-bold text-slate-200 transition duration-300 hover:-translate-y-0.5 hover:bg-stage-gold/10 hover:text-stage-gold md:py-2; }
+  .main-nav a.router-link-active { @apply bg-stage-gold/10 text-stage-gold; }
+  .menu-button { @apply flex h-11 w-11 flex-col justify-center gap-1.5 rounded-xl border border-stage-gold/20 bg-white/5 p-2 md:hidden; }
+  .menu-button span { @apply h-0.5 rounded-full bg-stage-gold; }
+
+  .section-shell { @apply mx-auto w-[min(1180px,calc(100%-2rem))] py-20 md:py-28; }
+  .hero { @apply relative grid min-h-screen grid-cols-1 items-center gap-10 pt-28 lg:grid-cols-[minmax(0,1.1fr)_minmax(280px,.55fr)] lg:gap-20; }
+  .page-hero { @apply grid min-h-[54svh] content-center pt-36 text-center; }
+  .page-hero h1 { @apply max-w-none; }
+  .eyebrow { @apply font-serif mb-4 font-black uppercase tracking-[.18em] text-stage-gold/90; }
+  .hero h1 { @apply max-w-[10ch] text-5xl md:text-7xl lg:text-8xl; }
+  .page-hero h1, h2 { @apply text-4xl md:text-6xl; }
+  .hero-text { @apply mt-6 max-w-2xl text-lg leading-8 text-stage-muted md:text-xl; }
+  .page-hero .hero-text { @apply mx-auto; }
+  .hero-actions { @apply mt-8 flex flex-wrap gap-4; }
+  .button { @apply inline-flex min-h-12 items-center justify-center rounded-full px-6 py-3 font-extrabold transition duration-300 hover:-translate-y-1 active:translate-y-0 active:scale-[.98] max-sm:w-full; }
+  .primary { @apply border border-stage-gold bg-gradient-to-br from-stage-bright to-red-950 text-white shadow-[0_14px_36px_rgba(193,18,31,.34)]; }
+  .ghost { @apply border border-stage-gold bg-stage-gold/5 text-stage-gold; }
+  .compact { @apply mt-5; }
+  .center-action { @apply mt-8 flex justify-center; }
+
+  .hero-card, .quote-card, .glass-card, .program-card, .benefit-card, .join-panel, .faq-list { @apply border border-stage-gold/20 bg-gradient-to-br from-stage-soft/80 to-[#080d1d]/60 shadow-stage backdrop-blur-xl; }
+  .hero-card { @apply relative overflow-hidden rounded-[2rem] p-8 animate-float transition duration-300 hover:-translate-y-2 hover:border-stage-gold/60; }
+  .spotlight-icon { @apply mb-5 h-16 w-16 rounded-2xl; }
+  .hero-card p { @apply m-0 text-xs font-black uppercase tracking-[.14em] text-stage-gold/90; }
+  .hero-card strong { @apply my-2 block font-serif text-4xl font-black text-white md:text-5xl; }
+  .hero-card span { @apply text-stage-muted; }
+  .two-column { @apply grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_.75fr] lg:gap-20; }
+  .quote-card { @apply rounded-[2rem] p-8; }
+  .quote-card svg { @apply h-12 w-12 text-stage-gold; }
+  blockquote { @apply m-0 mt-6 font-serif text-2xl font-black leading-tight md:text-4xl; }
+  .muted { @apply w-full max-w-none border-y border-stage-gold/10 bg-white/[.025] px-[max(1rem,calc((100vw-1180px)/2))]; }
+  .section-heading { @apply mx-auto mb-12 max-w-3xl text-center; }
+  .card-grid, .benefit-grid { @apply grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3; }
+  .glass-card, .benefit-card { @apply rounded-3xl p-6 transition duration-300 hover:-translate-y-1.5 hover:border-stage-gold/60 hover:shadow-[0_22px_70px_rgba(251,191,36,.08)]; }
+  .icon { @apply mb-4 h-12 w-12 rounded-2xl; }
+  .timeline { @apply grid gap-4; }
+  .program-card { @apply grid grid-cols-1 items-start gap-5 rounded-3xl p-6 transition duration-300 hover:-translate-y-1 hover:border-stage-gold/50 md:grid-cols-[6rem_1fr]; }
+  .program-card > span { @apply font-serif text-4xl font-black leading-none text-stage-gold; }
+  .benefit-card small { @apply font-black uppercase tracking-[.12em] text-stage-gold/90; }
+  .benefit-card h3 { @apply mt-2 text-2xl text-stage-gold; }
+  .join-panel { @apply mt-5 flex flex-col gap-8 rounded-[1.8rem] p-6 md:flex-row md:items-center md:justify-between md:p-10; }
+  .join-panel p { @apply max-w-3xl; }
+  .faq-section { @apply max-w-4xl; }
+  .faq-list { @apply rounded-3xl p-2; }
+  .faq-item { @apply grid w-full cursor-pointer grid-cols-[1fr_auto] gap-3 border-0 border-b border-stage-gold/10 bg-transparent p-4 text-left text-white transition duration-300 hover:bg-stage-gold/[.04] last:border-b-0; }
+  .faq-item span { @apply font-extrabold; }
+  .faq-item strong { @apply text-2xl text-stage-gold; }
+  .faq-item p { @apply col-span-2 m-0; }
+  .site-footer { @apply flex flex-wrap justify-between gap-4 border-t border-stage-gold/20 bg-[#070b16] px-4 py-8 md:px-10 lg:px-16; }
+  .site-footer p { @apply m-0; }
+  .site-footer div { @apply flex flex-wrap gap-4 font-bold text-stage-gold; }
+  .reveal { @apply animate-reveal; }
+  .delay-1 { animation-delay: .15s; }
+}
+
+.stage-lines {
+  position: absolute;
+  inset: 8rem -20vw auto;
+  height: 14rem;
+  opacity: .34;
+  background: repeating-linear-gradient(105deg, transparent 0 34px, rgba(251, 191, 36, .5) 35px 37px, transparent 38px 70px);
+  transform: rotate(-4deg);
+  mask-image: linear-gradient(90deg, transparent, black 16%, black 84%, transparent);
+  animation: stage-drift 16s linear infinite;
+}
+
+.hero-card::before {
+  content: '';
+  position: absolute;
+  inset: -40% -20% auto;
+  height: 11rem;
+  background: radial-gradient(circle, rgba(251, 191, 36, .28), transparent 68%);
+  animation: soft-pulse 4s ease-in-out infinite;
+}
+
+.brand:hover .brand-mark, .glass-card:hover .icon, .benefit-card:hover .icon, .hero-card:hover .spotlight-icon {
+  transform: rotate(-4deg) scale(1.06);
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity .7s cubic-bezier(.16, 1, .3, 1) var(--reveal-delay, 0ms),
+    transform .7s cubic-bezier(.16, 1, .3, 1) var(--reveal-delay, 0ms),
+    border-color .3s ease,
+    box-shadow .3s ease;
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-answer-enter-active,
+.faq-answer-leave-active {
+  overflow: hidden;
+  transition: opacity .25s ease, transform .25s ease, max-height .3s ease;
+  max-height: 120px;
+}
+
+.faq-answer-enter-from,
+.faq-answer-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+  max-height: 0;
+}
+
+.page-enter-active,
+.page-leave-active,
+.layout-enter-active,
+.layout-leave-active {
+  transition: opacity .34s ease, transform .42s cubic-bezier(.16, 1, .3, 1);
+}
+
+.page-enter-from,
+.layout-enter-from {
+  opacity: 0;
+  transform: translateX(36px) scale(.985);
+}
+
+.page-leave-to,
+.layout-leave-to {
+  opacity: 0;
+  transform: translateX(-36px) scale(.985);
+}
+
+.page-enter-active { position: relative; }
+
+@keyframes stage-drift {
+  from { background-position: 0 0; }
+  to { background-position: 280px 0; }
+}
+
+@keyframes soft-pulse {
+  0%, 100% { opacity: .7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; scroll-behavior: auto !important; transition: none !important; }
+  .scroll-reveal { opacity: 1; transform: none; }
+  .page-enter-from, .page-leave-to, .layout-enter-from, .layout-leave-to { opacity: 1; transform: none; filter: none; }
+}
+
+@media (max-width: 620px) { .stage-lines { display: none; } }

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sijimban | Program Utama</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Special layout for proker */
+        .proker-card {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            border: 2px solid var(--accent-red);
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+        }
+        .proker-card:nth-child(even) {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+        .proker-content {
+            flex: 1;
+            padding: 0 2rem;
+        }
+        .circle-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: var(--bg-navy);
+            border: 4px solid var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        @media (max-width: 768px) {
+            .proker-card, .proker-card:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+            }
+            .proker-content { padding: 1rem 0 0 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">TEATER <span>SIJIMBAN</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="tentang.html">Tentang</a></li>
+            <li><a href="pengurus.html">Pengurus Inti</a></li>
+            <li><a href="divisi.html">Divisi</a></li>
+            <li><a href="benefit.html">Kenapa Sijimban?</a></li>
+            <li><a href="proker.html" class="active">Proker</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2 class="section-title">Program Kerja Utama</h2>
+
+        <div class="proker-card">
+            <div class="circle-placeholder">🎭</div>
+            <div class="proker-content">
+                <h3>Pentas Tunggal Teater (PTT)</h3>
+                <p>Panggung akbar produksi mandiri dari Teater Sijimban yang menampilkan karya eksklusif dengan persiapan penuh dari seluruh divisi.</p>
+            </div>
+        </div>
+
+        <div class="proker-card">
+            <div class="circle-placeholder">🎪</div>
+            <div class="proker-content">
+                <h3>Pentas Seni Tutup Tahun (PSTT)</h3>
+                <p>Pertunjukan perayaan penutup tahun pelajaran sekaligus panggung apresiasi bagi seluruh anggota atas perjalanan proses kreatif selama satu periode.</p>
+            </div>
+        </div>
+
+        <div class="proker-card">
+            <div class="circle-placeholder">👥</div>
+            <div class="proker-content">
+                <h3>Musyawarah Besar</h3>
+                <p>Forum tertinggi organisasi untuk evaluasi, penyampaian aspirasi, serta merancang amandemen dan arah gerak Sijimban ke depannya.</p>
+            </div>
+        </div>
+
+        <div class="proker-card">
+            <div class="circle-placeholder">🤝</div>
+            <div class="proker-content">
+                <h3>Serah Terima Jabatan</h3>
+                <p>Momen sakral regenerasi kepengurusan dari angkatan lama ke angkatan baru untuk meneruskan tongkat estafet Siji Manunggal Bantul.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Teater Sijimban - SMA N 1 Bantul. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

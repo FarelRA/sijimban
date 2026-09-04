@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600&family=Rye&display=swap');
+
+:root {
+    --bg-navy: #0f172a;
+    --accent-red: #dc2626;
+    --accent-gold: #fbbf24;
+    --text-light: #f8fafc;
+    --card-bg: rgba(30, 41, 59, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-navy);
+    color: var(--text-light);
+    background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, var(--bg-navy) 70%);
+    background-attachment: fixed;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Rye', serif;
+    color: var(--accent-gold);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    letter-spacing: 1px;
+}
+
+/* Navbar */
+nav {
+    background-color: rgba(15, 23, 42, 0.95);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--accent-red);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Rye', serif;
+    font-size: 1.8rem;
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--accent-red);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent-gold);
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: var(--accent-red);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid var(--accent-gold);
+    transition: all 0.3s;
+    font-family: 'Cinzel', serif;
+}
+
+.btn:hover {
+    background-color: var(--accent-gold);
+    color: var(--bg-navy);
+    transform: scale(1.05);
+}
+
+/* Sections & Cards */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '🎭';
+    display: block;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--card-bg);
+    border: 2px solid var(--accent-red);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 5px;
+    background: var(--accent-gold);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(220, 38, 38, 0.2);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-family: 'Cinzel', serif;
+}
+
+/* Alert/Banner Style for special info */
+.banner-info {
+    background: var(--accent-red);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 3px dashed var(--accent-gold);
+    margin-bottom: 2rem;
+}
+
+.banner-info h2 {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(15, 23, 42, 0.95);
+    border-top: 3px solid var(--accent-gold);
+    margin-top: auto;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #fbbf24, 0 0 20px #fbbf24; }
+    to { text-shadow: 0 0 20px #fbbf24, 0 0 30px #dc2626; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* In a real app, make a hamburger menu */
+    }
+    .hero h1 { font-size: 2.5rem; }
+}
