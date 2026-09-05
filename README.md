@@ -6,7 +6,7 @@ Halaman: beranda, tentang, divisi, pengurus, program kerja, pendaftaran (gabung)
 
 ## Stack
 
-- Nuxt 3 (Vue), Tailwind CSS, `@nuxt/icon`
+- Nuxt 4 (Vue), Tailwind CSS, `@nuxt/icon`
 - Bun untuk package manager dan runtime build
 
 ## Development
